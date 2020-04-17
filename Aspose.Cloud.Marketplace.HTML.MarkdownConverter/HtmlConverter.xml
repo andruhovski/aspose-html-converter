@@ -1,0 +1,255 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HtmlConverter</name>
+    </assembly>
+    <members>
+        <member name="T:Aspose.Cloud.Marketplace.HTML.Converter.Controllers.HomeController">
+            <summary>
+            Controller for Web UI
+            </summary>
+        </member>
+        <member name="M:Aspose.Cloud.Marketplace.HTML.Converter.Controllers.HomeController.#ctor(Aspose.Cloud.Marketplace.HTML.Converter.Services.StatisticalService)">
+            <summary>
+            Constructor initialize basic MVC Controller
+            </summary>
+            <param name="statisticalService">StatisticalService holds </param>
+        </member>
+        <member name="M:Aspose.Cloud.Marketplace.HTML.Converter.Controllers.HomeController.Index">
+            <summary>
+            Home page 
+            </summary>
+            <returns>Views/Home/Index.cshtml</returns>
+        </member>
+        <member name="M:Aspose.Cloud.Marketplace.HTML.Converter.Controllers.HomeController.Statistic">
+            <summary>
+            Page for stats
+            </summary>
+            <returns>Views/Home/Statistic.cshtml</returns>
+        </member>
+        <member name="M:Aspose.Cloud.Marketplace.HTML.Converter.Controllers.HomeController.Status">
+            <summary>
+            Health Check page. Intended for monitoring tools
+            </summary>
+            <returns>Views/Home/Statistic.cshtml</returns>
+        </member>
+        <member name="M:Aspose.Cloud.Marketplace.HTML.Converter.Controllers.HomeController.Error">
+            <summary>
+            Default error page
+            </summary>
+            <returns>Views/Shared/Statistic.cshtml</returns>
+        </member>
+        <member name="T:Aspose.Cloud.Marketplace.HTML.Converter.Controllers.MarkdownController">
+            <summary>
+            API controller for Markdown handling
+            </summary>
+        </member>
+        <member name="M:Aspose.Cloud.Marketplace.HTML.Converter.Controllers.MarkdownController.#ctor(Microsoft.Extensions.Logging.ILogger{Aspose.Cloud.Marketplace.HTML.Converter.Controllers.MarkdownController},Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Aspose.Html.Cloud.Sdk.Api.Interfaces.IConversionApi,Aspose.Html.Cloud.Sdk.Api.Interfaces.IImportApi,Aspose.Html.Cloud.Sdk.Api.Interfaces.IStorageFileApi,Aspose.Cloud.Marketplace.HTML.Converter.Services.StatisticalService)">
+            <summary>
+            Constructor. Initialize services for conversion
+            </summary>
+            <param name="logger">Logger service</param>
+            <param name="env">Host environment</param>
+            <param name="conversionApi">HTML-to-PDF API</param>
+            <param name="importApi">MD-to-PDF API</param>
+            <param name="storageApi">Storage API</param>
+            <param name="statisticalService">Statistical Service</param>
+        </member>
+        <member name="M:Aspose.Cloud.Marketplace.HTML.Converter.Controllers.MarkdownController.Post(Aspose.Cloud.Marketplace.HTML.Converter.Models.ConverterOptions)">
+            <summary>
+            Converter. Accepts incoming options, calculate settings for printable pages (if necessary) and render output content.
+            </summary>
+            <param name="converterOptions">Incoming options</param>
+            <returns></returns>
+        </member>
+        <member name="T:Aspose.Cloud.Marketplace.HTML.Converter.Helpers.LengthConverter">
+            <summary>
+            Helper class for length conversion
+            </summary>
+        </member>
+        <member name="M:Aspose.Cloud.Marketplace.HTML.Converter.Helpers.LengthConverter.ToPoints(System.String)">
+            <summary>
+            Convert measurement unit to points
+            </summary>
+            <param name="parameter"></param>
+            <returns>Value in pt (72pt == 1 inch)</returns>
+        </member>
+        <member name="M:Aspose.Cloud.Marketplace.HTML.Converter.Helpers.LengthConverter.ToCssPixels(System.String)">
+            <summary>
+            Convert measurement unit to CSS pixels
+            </summary>
+            <param name="parameter"></param>
+            <returns>CSS pixels value (96dpi)</returns>
+        </member>
+        <member name="T:Aspose.Cloud.Marketplace.HTML.Converter.Helpers.SettingsConverter">
+            <summary>
+            Helper class to convert incoming options into page options for rendering
+            </summary>
+        </member>
+        <member name="M:Aspose.Cloud.Marketplace.HTML.Converter.Helpers.SettingsConverter.GetPageSettings(Aspose.Cloud.Marketplace.HTML.Converter.Models.ConverterOptions)">
+            <summary>
+            Convert incoming options into page settings for rendering.
+            </summary>
+            <param name="converterOptions">Options from request</param>
+            <returns>Page settings for rendering PDF</returns>
+        </member>
+        <member name="T:Aspose.Cloud.Marketplace.HTML.Converter.Models.AsposeApiSecrets">
+            <summary>
+            AsposeApiSecrets is used to store Aspose.Cloud credentials. Please, follow to https://purchase.aspose.cloud/ to get free API keys
+            </summary>
+            
+        </member>
+        <member name="P:Aspose.Cloud.Marketplace.HTML.Converter.Models.AsposeApiSecrets.ApiKey">
+            <summary>
+            Api Key
+            </summary>
+        </member>
+        <member name="P:Aspose.Cloud.Marketplace.HTML.Converter.Models.AsposeApiSecrets.AppSid">
+            <summary>
+            App SID
+            </summary>
+        </member>
+        <member name="P:Aspose.Cloud.Marketplace.HTML.Converter.Models.AsposeApiSecrets.BasePath">
+            <summary>
+            Endpoint
+            </summary>
+        </member>
+        <member name="T:Aspose.Cloud.Marketplace.HTML.Converter.Models.ConverterOptions">
+            <summary>
+            Class holds incoming options.
+            </summary>
+        </member>
+        <member name="P:Aspose.Cloud.Marketplace.HTML.Converter.Models.ConverterOptions.MachineId">
+            <summary>
+            Machine ID. Used for stats purposes.
+            </summary>
+        </member>
+        <member name="P:Aspose.Cloud.Marketplace.HTML.Converter.Models.ConverterOptions.Content">
+            <summary>
+            Markdown content
+            </summary>
+        </member>
+        <member name="P:Aspose.Cloud.Marketplace.HTML.Converter.Models.ConverterOptions.To">
+            <summary>
+            Desired format for output file
+            </summary>
+        </member>
+        <member name="P:Aspose.Cloud.Marketplace.HTML.Converter.Models.ConverterOptions.Paper">
+            <summary>
+            Page settings 
+            </summary>
+        </member>
+        <member name="P:Aspose.Cloud.Marketplace.HTML.Converter.Models.ConverterOptions.Margins">
+            <summary>
+            Margin settings 
+            </summary>
+        </member>
+        <member name="T:Aspose.Cloud.Marketplace.HTML.Converter.Models.Margins">
+            <summary>
+            Specifies the dimensions of the margins of a printed page.
+            </summary>
+        </member>
+        <member name="P:Aspose.Cloud.Marketplace.HTML.Converter.Models.Margins.Left">
+            <summary>
+            Get or set Left margin
+            </summary>
+        </member>
+        <member name="P:Aspose.Cloud.Marketplace.HTML.Converter.Models.Margins.Right">
+            <summary>
+            Get or set Right margin
+            </summary>
+        </member>
+        <member name="P:Aspose.Cloud.Marketplace.HTML.Converter.Models.Margins.Top">
+            <summary>
+            Get or set Top margin
+            </summary>
+        </member>
+        <member name="P:Aspose.Cloud.Marketplace.HTML.Converter.Models.Margins.Bottom">
+            <summary>
+            Get or set Bottom margin
+            </summary>
+        </member>
+        <member name="T:Aspose.Cloud.Marketplace.HTML.Converter.Models.PageSettings">
+            <summary>
+            PageSettings are used to render printed pages
+            </summary>
+        </member>
+        <member name="F:Aspose.Cloud.Marketplace.HTML.Converter.Models.PageSettings.Height">
+            <summary>
+            Height. Default value is 297mm
+            </summary>
+        </member>
+        <member name="F:Aspose.Cloud.Marketplace.HTML.Converter.Models.PageSettings.Width">
+            <summary>
+            Width. Default value is 210mm
+            </summary>
+        </member>
+        <member name="F:Aspose.Cloud.Marketplace.HTML.Converter.Models.PageSettings.Left">
+            <summary>
+            Left margin. Default value is210mm
+            </summary>
+        </member>
+        <member name="F:Aspose.Cloud.Marketplace.HTML.Converter.Models.PageSettings.Bottom">
+            <summary>
+            Bottom margin. Default value is210mm
+            </summary>
+        </member>
+        <member name="F:Aspose.Cloud.Marketplace.HTML.Converter.Models.PageSettings.Right">
+            <summary>
+            Right margin. Default value is210mm
+            </summary>
+        </member>
+        <member name="F:Aspose.Cloud.Marketplace.HTML.Converter.Models.PageSettings.Top">
+            <summary>
+            Top margin. Default value is210mm
+            </summary>
+        </member>
+        <member name="M:Aspose.Cloud.Marketplace.HTML.Converter.Models.PageSettings.ToString">
+            <summary>
+            string representation (for logs)
+            </summary>
+            <returns>string: HxW [T/B L/R]</returns>
+        </member>
+        <member name="T:Aspose.Cloud.Marketplace.HTML.Converter.Models.Paper">
+            <summary>
+            Settings for printable pages
+            </summary>
+        </member>
+        <member name="P:Aspose.Cloud.Marketplace.HTML.Converter.Models.Paper.Orientation">
+            <summary>
+            Gets or sets the page orientation.
+            </summary>
+        </member>
+        <member name="P:Aspose.Cloud.Marketplace.HTML.Converter.Models.Paper.Size">
+            <summary>
+            Gets or sets the page size. 
+            </summary>
+        </member>
+        <member name="P:Aspose.Cloud.Marketplace.HTML.Converter.Models.Paper.Width">
+            <summary>
+            Gets or sets the Width. Used when Size is Custom
+            </summary>
+        </member>
+        <member name="P:Aspose.Cloud.Marketplace.HTML.Converter.Models.Paper.Height">
+            <summary>
+            Gets or sets the Height. Used when Size is Custom
+            </summary>
+        </member>
+        <member name="T:Aspose.Cloud.Marketplace.HTML.Converter.Services.StatisticalService">
+            <summary>
+            Concept version for Statistical service.
+            </summary>
+        </member>
+        <member name="P:Aspose.Cloud.Marketplace.HTML.Converter.Services.StatisticalService.Stats">
+            <summary>
+            Stats dictionary is used for counting converted docs per machine.
+            </summary>
+        </member>
+        <member name="M:Aspose.Cloud.Marketplace.HTML.Converter.Services.StatisticalService.IncrementCounter(System.String)">
+            <summary>
+            The method counts converted documents
+            </summary>
+            <param name="converterOptionsMachineId">VS Code MachineID value</param>
+        </member>
+    </members>
+</doc>

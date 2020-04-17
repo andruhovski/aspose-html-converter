@@ -1,0 +1,17 @@
+﻿@model IEnumerable<KeyValuePair<string,int>>
+
+@{
+    ViewBag.Title = "Statistic";
+    Layout = "_Layout";
+}
+
+<h2>Stats</h2>
+
+<ul>
+    @foreach (var (key, value) in Model)
+    {
+        <li>
+           @key : @value
+        </li>
+    }
+</ul>

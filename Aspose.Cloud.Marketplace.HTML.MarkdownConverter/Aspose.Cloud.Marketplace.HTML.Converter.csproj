@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>HtmlConverter</AssemblyName>
+    <UserSecretsId>1a150fa5-bb0e-476d-bc34-26e9d0198566</UserSecretsId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\andru\source\repos\aspose-md\aspose-html-converter\Aspose.Cloud.Marketplace.HTML.MarkdownConverter\HtmlConverter.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspose.HTML-Cloud" Version="19.11.0" />
+  </ItemGroup>
+
+
+</Project>
