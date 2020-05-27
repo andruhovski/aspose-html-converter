@@ -76,9 +76,18 @@ namespace Aspose.Cloud.Marketplace.HTML.Converter.Controllers
             {
                 response = _importApi.PostImportMarkdownToHtml(file, htmlFileName);
             }
+            catch (AggregateException ae)
+            {
+                ae.Handle((x) =>
+                {
+                    _logger.LogError($"Error file uploading {tempFileGuid}. {x.Message}");
+                    return true;
+                });
+                throw;
+            }
             catch (Exception ex)
             {
-                _logger.LogError($"Error file uploading {tempFileGuid} {ex.Message}");
+                _logger.LogError($"Error file uploading {tempFileGuid}. {ex.Message}");
                 throw;
             }
 
@@ -133,7 +142,7 @@ namespace Aspose.Cloud.Marketplace.HTML.Converter.Controllers
             _logger.LogInformation(message: $"Conversion completed: {tempFileGuid} / {finishTime}");
             _logger.LogInformation(message: $"Conversion time: {tempFileGuid} / {finishTime.Subtract(startTime).Milliseconds}ms");
             //TODO: Implement gather stats
-            //_statisticalService.IncrementCounter(converterOptions.MachineId);
+            _statisticalService.IncrementCounter(converterOptions.MachineId);
             return File(resultStream, _contentType);
         }
     }

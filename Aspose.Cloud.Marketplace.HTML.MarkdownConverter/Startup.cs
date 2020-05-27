@@ -11,6 +11,9 @@ namespace Aspose.Cloud.Marketplace.HTML.Converter
 {
     public class Startup
     {
+        internal const string AppName = "aspose-html-converter-app";
+        internal const string AsposeClientHeaderName = "x-aspose-client";
+        internal const string AsposeClientVersionHeaderName = "x-aspose-client-version";
         public Startup(IHostEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -35,12 +38,24 @@ namespace Aspose.Cloud.Marketplace.HTML.Converter
         {
             services.AddControllersWithViews();
             var asposeApiSecrets = Configuration.GetSection("AsposeCloud").Get<AsposeApiSecrets>();
+            var config = new Aspose.Html.Cloud.Sdk.Client.Configuration()
+            {
+                AppSid = asposeApiSecrets.AppSid,
+                AppKey = asposeApiSecrets.ApiKey,
+                ApiBaseUrl = asposeApiSecrets.BasePath,
+                AuthUrl = asposeApiSecrets.BasePath,
+                ApiVersion = "3.0"
+            };
+            config.AddDefaultHeader(AsposeClientHeaderName, AppName);
+            var version = GetType().Assembly.GetName().Version;
+            config.AddDefaultHeader(AsposeClientVersionHeaderName, $"{version.Major}.{version.Minor}");
+
             services.AddScoped<Aspose.Html.Cloud.Sdk.Api.Interfaces.IStorageFileApi, Aspose.Html.Cloud.Sdk.Api.StorageApi>(s =>
-                new Aspose.Html.Cloud.Sdk.Api.StorageApi(asposeApiSecrets.AppSid, asposeApiSecrets.ApiKey, asposeApiSecrets.BasePath, asposeApiSecrets.BasePath));
+                new Aspose.Html.Cloud.Sdk.Api.StorageApi(config));
             services.AddScoped<Aspose.Html.Cloud.Sdk.Api.Interfaces.IImportApi, Aspose.Html.Cloud.Sdk.Api.HtmlApi>(s =>
-                new Aspose.Html.Cloud.Sdk.Api.HtmlApi(asposeApiSecrets.AppSid, asposeApiSecrets.ApiKey, asposeApiSecrets.BasePath, asposeApiSecrets.BasePath));
+                new Aspose.Html.Cloud.Sdk.Api.HtmlApi(config));
             services.AddScoped<Aspose.Html.Cloud.Sdk.Api.Interfaces.IConversionApi, Aspose.Html.Cloud.Sdk.Api.HtmlApi>(s =>
-                new Aspose.Html.Cloud.Sdk.Api.HtmlApi(asposeApiSecrets.AppSid, asposeApiSecrets.ApiKey, asposeApiSecrets.BasePath, asposeApiSecrets.BasePath));
+                new Aspose.Html.Cloud.Sdk.Api.HtmlApi(config));
             services.AddSingleton<StatisticalService>();
         }
 
