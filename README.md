@@ -25,3 +25,11 @@ To run/debug app on local machine, please add Aspose.Cloud credential:
     * `dotnet user-secrets set "AsposeCloud:ApiKey" "<put api key here>"`
     * `dotnet user-secrets set "AsposeCloud:AppSid" "<put app sid here>"`
     * `dotnet user-secrets set "AsposeCloud:BasePath" "https://api.aspose.cloud"`
+
+## Workflow
+
+In order to make changes in the repository, you need to:
+
+1. Create a branch with the proposed changes whose name matches the feature/* pattern.
+2. Create a pull request for this branch. It will be automatically assigned to a suitable reviewer.
+3. Once the request is approved, it can be merged.
